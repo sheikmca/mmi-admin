@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>mmi-admin-server</artifactId>
+    <version>0.1.0</version>
+
+    <name>mmi-admin-server</name>
+    <description>Project-S mmi admin server</description>
+
+    <parent>
+        <groupId>sg.ncs.project-s</groupId>
+        <artifactId>mmi-parent</artifactId>
+        <version>0.3.0</version>
+        <relativePath />
+    </parent>
+
+    <properties>
+        <common-core.version>0.3.0</common-core.version>
+        <common-redis.version>0.3.0</common-redis.version>
+        <common-exception.version>0.3.0</common-exception.version>
+        <common-mybatis.version>0.3.0</common-mybatis.version>
+        <common-log.version>0.3.0</common-log.version>
+        <common-util.version>0.3.0</common-util.version>
+        <common-oss.version>0.3.0</common-oss.version>
+        <common-serialize.version>0.3.0</common-serialize.version>
+        <common-monitor.version>0.3.0</common-monitor.version>
+
+        <uaa.version>0.3.0</uaa.version>
+        <mmi-admin.version>0.3.0</mmi-admin.version>
+        <mmi-notification.version>0.3.1</mmi-notification.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>kaisquare-release</id>
+            <url>https://artifactory.kaisquare.com/artifactory/libs-release</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>sg.ncs.project-s</groupId>
+            <artifactId>mmi-admin-pojo</artifactId>
+            <version>${mmi-admin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>sg.ncs.project-s</groupId>
+            <artifactId>uaa-server-starter</artifactId>
+            <version>${uaa.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.zaxxer</groupId>
+                    <artifactId>HikariCP</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>sg.ncs.project-s</groupId>
+            <artifactId>common-log</artifactId>
+            <version>${common-log.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>sg.ncs.project-s</groupId>
+            <artifactId>common-util-poi</artifactId>
+            <version>${common-util.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>sg.ncs.project-s</groupId>
+            <artifactId>common-oss</artifactId>
+            <version>${common-oss.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>sg.ncs.project-s</groupId>
+            <artifactId>common-redis</artifactId>
+            <version>${common-redis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>sg.ncs.project-s</groupId>
+            <artifactId>common-exception-advice</artifactId>
+            <version>${common-exception.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>sg.ncs.project-s</groupId>
+            <artifactId>common-serialize</artifactId>
+            <version>${common-serialize.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>sg.ncs.project-s</groupId>
+            <artifactId>common-monitor</artifactId>
+            <version>${common-monitor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>sg.ncs.project-s</groupId>
+            <artifactId>mmi-notification-pojo</artifactId>
+            <version>${mmi-notification.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-inline</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!-- Generator code coverage report -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <destFile>${project.build.directory}/coverage-reports/jacoco.exec
+                            </destFile>
+                            <propertyName>surefireArgLine</propertyName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <dataFile>${project.build.directory}/coverage-reports/jacoco.exec
+                            </dataFile>
+                            <outputDirectory>${project.reporting.outputDirectory}/jacoco
+                            </outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>default-check</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <dataFile>${project.build.directory}/coverage-reports/jacoco.exec</dataFile>
+                            <rules>
+                                <rule>
+                                    <!-- project line code coverage more than 40% -->
+                                    <!-- BUNDLE, PACKAGE, CLASS, SOURCEFILE or METHOD -->
+                                    <element>BUNDLE</element>
+                                    <limits>
+                                        <limit>
+                                            <!-- INSTRUCTION, LINE, BRANCH, COMPLEXITY, METHOD, CLASS -->
+                                            <counter>LINE</counter>
+                                            <!-- TOTALCOUNT, COVEREDCOUNT, MISSEDCOUNT, COVEREDRATIO, MISSEDRATIO -->
+                                            <value>TOTALCOUNT</value>
+                                            <minimum>1</minimum>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
