@@ -1,0 +1,8 @@
+C:\Users\P1372445\IdeaProjects\mmi-admin2\mmi-admin-feign\src\main\java\sg\ncs\kp\admin\feign\AgencyFeign.java
+C:\Users\P1372445\IdeaProjects\mmi-admin2\mmi-admin-feign\src\main\java\sg\ncs\kp\admin\feign\KpAdminFeign.java
+C:\Users\P1372445\IdeaProjects\mmi-admin2\mmi-admin-feign\src\main\java\sg\ncs\kp\admin\feign\UserFeign.java
+C:\Users\P1372445\IdeaProjects\mmi-admin2\mmi-admin-feign\src\main\java\sg\ncs\kp\admin\feign\fallback\UserFeignFallbackFactory.java
+C:\Users\P1372445\IdeaProjects\mmi-admin2\mmi-admin-feign\src\main\java\sg\ncs\kp\admin\feign\config\FeignInterceptor.java
+C:\Users\P1372445\IdeaProjects\mmi-admin2\mmi-admin-feign\src\main\java\sg\ncs\kp\admin\feign\fallback\UserFallBack.java
+C:\Users\P1372445\IdeaProjects\mmi-admin2\mmi-admin-feign\src\main\java\sg\ncs\kp\admin\feign\RecipientGroupFeign.java
+C:\Users\P1372445\IdeaProjects\mmi-admin2\mmi-admin-feign\src\main\java\sg\ncs\kp\admin\feign\fallback\AgencyFeignFallBack.java

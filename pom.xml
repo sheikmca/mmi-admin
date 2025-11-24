@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>sg.ncs.proj-w</groupId>
+        <artifactId>mmi-parent</artifactId>
+        <version>0.1.0</version>
+    </parent>
+
+    <artifactId>mmi-admin</artifactId>
+    <version>0.1.0</version>
+
+    <packaging>pom</packaging>
+
+    <name>mmi-admin</name>
+    <description>Project-W admin</description>
+    <modules>
+        <module>mmi-admin-pojo</module>
+        <module>mmi-admin-feign</module>
+        <module>mmi-admin-server</module>
+    </modules>
+
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <common-core.version>0.1.0</common-core.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>sg.ncs.proj-w</groupId>
+                <artifactId>mmi-admin-pojo</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>sg.ncs.proj-w</groupId>
+                <artifactId>mmi-admin-feign</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>sg.ncs.proj-w</groupId>
+                <artifactId>common-core</artifactId>
+                <version>${common-core.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>kaisquare-release</id>
+            <url>https://artifactory.kaisquare.com/artifactory/libs-release</url>
+        </repository>
+        <snapshotRepository>
+            <id>kaisquare-snapshot</id>
+            <url>https://artifactory.kaisquare.com/artifactory/libs-snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>kaisquare-snapshot</id>
+            <name>snapshot</name>
+            <url>https://artifactory.kaisquare.com/artifactory/libs-snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>kaisquare-release</id>
+            <name>release</name>
+            <url>https://artifactory.kaisquare.com/artifactory/libs-release</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>

@@ -1,0 +1,58 @@
+variables:
+  MODULE_DIR: "mmi-admin-server"
+  MODULE_NAME: mmi-admin-server
+
+image: $BUILD_IMAGE_JAVA
+
+stages:
+  - common_build
+  - build
+  - code_scan
+
+# import ci file form common project
+include:
+  - project: 'vit/mmi/va_mmi_platform/mmi-common'
+    ref: develop
+    file: 'common-ci/.gitlab-ci-template.yml'
+  - project: 'vit/mmi/va_mmi_platform/mmi-common'
+    ref: develop
+    file: 'common-ci/.gitlab-ci-template-dep.yml'
+  - project: 'vit/mmi/va_mmi_platform/mmi-common'
+    ref: develop
+    file: 'common-ci/.gitlab-ci-template-doc.yml'
+  - project: 'vit/mmi/va_mmi_platform/mmi-common'
+    ref: develop
+    file: 'common-ci/.gitlab-ci-template-sonarqube.yml'
+
+
+# build pojo and feign
+common_build:
+  extends: .deploy_base
+  only:
+    refs:
+      - main
+      - bugfix/VAMMI-231
+      - develop
+    changes:
+      - pom.xml
+      - mmi-admin-feign/**/*
+      - mmi-admin-pojo/**/*
+
+# build latest image
+latest_build:
+  variables:
+    IMAGE_TAG: latest
+    PIPELINE_RULE: bugfix/VAMMI-231
+  extends:
+    - .build_base
+    - .build_rule
+
+# build release image
+release_build:
+  variables:
+    IMAGE_TAG: release
+    PIPELINE_RULE: develop
+  extends:
+    - .build_base
+    - .build_rule
+

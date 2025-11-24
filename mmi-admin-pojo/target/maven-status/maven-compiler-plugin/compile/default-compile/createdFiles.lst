@@ -1,0 +1,7 @@
+sg\ncs\kp\admin\pojo\TenantConfig.class
+sg\ncs\kp\admin\pojo\DictionaryQueryDto.class
+sg\ncs\kp\admin\pojo\DictionaryItemQueryDto.class
+sg\ncs\kp\admin\pojo\TenantVO.class
+sg\ncs\kp\admin\pojo\DictionaryItemVo.class
+sg\ncs\kp\admin\pojo\AdminConstants.class
+sg\ncs\kp\admin\pojo\WSMsgTypEnum.class

@@ -1,0 +1,8 @@
+sg\ncs\kp\admin\feign\AgencyFeign.class
+sg\ncs\kp\admin\feign\config\FeignInterceptor.class
+sg\ncs\kp\admin\feign\fallback\UserFallBack.class
+sg\ncs\kp\admin\feign\UserFeign.class
+sg\ncs\kp\admin\feign\fallback\AgencyFeignFallBack.class
+sg\ncs\kp\admin\feign\KpAdminFeign.class
+sg\ncs\kp\admin\feign\fallback\UserFeignFallbackFactory.class
+sg\ncs\kp\admin\feign\RecipientGroupFeign.class
